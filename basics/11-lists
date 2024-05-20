@@ -1,7 +1,2 @@
 #!/bin/bash
-echo "Files in current directory (including hidden):"
-ls -la
-echo "Files in parent directory (including hidden):"
-ls -la ..
-echo "Files in /boot directory (including hidden):"
 ls -la /boot
