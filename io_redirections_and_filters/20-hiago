@@ -1,0 +1,2 @@
+#!/bin/bash
+print(''.join(c for c in input().replace('\n', '') if c.lower() != 'c'))
