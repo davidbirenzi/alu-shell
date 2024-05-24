@@ -1,2 +1,2 @@
 #!/bin/bash
-print(input().replace('A', 'Z').replace('c', 'e'))
+tr -t "A""Z"|tr -t "c""e"
