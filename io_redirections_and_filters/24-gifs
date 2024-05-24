@@ -1,2 +1,2 @@
 #!/bin/bash
-| LC_COLLATE=C sort -f
+find . -type f -name "*.gif" -exec sh -c 'basename -- "$1" | sed "s/\.gif$//" ' _ {} \+ | LC_ALL=C sort -f
