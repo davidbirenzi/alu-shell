@@ -1,2 +1,0 @@
-#!/bin/bash
-print('\n'.join(sorted(Counter(l.split('\t')[0] for l in sys.stdin if len(l.split('\t'))>=7).most_common(11), key=lambda x: x[1], reverse=True)[i][0] for i in range(11)))
