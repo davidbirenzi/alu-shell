@@ -1,0 +1,2 @@
+#!/bin/bash
+python parse_logs.py path/to/your/logfile.tsv
