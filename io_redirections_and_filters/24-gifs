@@ -1,2 +1,0 @@
-#!/bin/bash
-find . -type f -iname '*.gif' -exec sh -c 'for file; do file="${file##*/}"; echo "${file%.gif}"; done' sh {} + | LC_ALL=C sort -f
