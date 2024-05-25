@@ -1,2 +1,2 @@
 #!/bin/bash
-(printf "%s\n" "$(set -o posix; set)" "$(env)" "$(declare -F)")
+printf "%s " $(env | tr '\n' ';' | tr '=' '="' | tr ';' ' "')
