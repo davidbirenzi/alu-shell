@@ -1,2 +1,2 @@
 #!/bin/bash
-exec("BEST='School'")
+exec("BEST='School'") | print(f"BEST={BEST}")
