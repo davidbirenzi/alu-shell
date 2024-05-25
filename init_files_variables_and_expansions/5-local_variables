@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "BASH=$BASH" | echo "BASHOPTS=$BASHOPTS"
+( set -o posix | set ) | env | declare -F
