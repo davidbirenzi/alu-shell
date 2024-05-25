@@ -1,0 +1,2 @@
+#!/bin/bash
+grep -n '' /dev/stdin | paste -d'\n' - - | cut -d':' -f2
