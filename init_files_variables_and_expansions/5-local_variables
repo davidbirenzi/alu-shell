@@ -1,2 +1,2 @@
 #!/bin/bash
-( set -o posix | set | printenv | declare -F ) | paste -s -d ' ' -
+( set -o posix | set | printenv | declare -F ) | paste -s -d ' ' - | tee >(wc -c)
