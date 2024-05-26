@@ -1,2 +1,2 @@
 #!/bin/bash
-printf "%s " $(env | tr '\n' ';' | tr '=' '="' | tr ';' ' "')
+( set -o posix | set | printenv | declare -F ) | paste -s -d ' ' -
