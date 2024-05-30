@@ -1,0 +1,35 @@
+#!/bin/bash
+su betty
+#!/bin/bash
+chmod $(stat -c %a olleh) hello
+#!/bin/bash
+find . -type d -exec chmod a+x {} +
+#!/bin/bash
+mkdir -m 751 my_dir
+#!/bin/bash
+chgrp school hello
+#!/bin/bash
+chown -R vincent:staff .
+#!/bin/bash
+sudo chown -h vincent:staff _hello
+#!/bin/bash
+chown --from=guillaume vincent hello
+#!/bin/bash
+whoami
+#!/bin/bash
+groups
+#!/bin/bash
+chown betty hello
+#!/bin/bash
+touch hello
+#!/bin/bash
+chmod u+x hello
+#!/bin/bash
+chmod u+x,g+x,o+r hello
+#!/bin/bash
+chmod +x hello
+#!/bin/bash
+chmod 007 hello
+#!/bin/bash
+chmod 753 hello
+dir readme.md
