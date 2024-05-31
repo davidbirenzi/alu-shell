@@ -1,9 +1,39 @@
 #!/usr/bin/env bash
 #dig the data
-if [[ ! -s apache-access.log ]]; then
-    echo "Log file is empty or does not exist."
+LOG_FILE="apache-access.log"
+
+# Check if the log file exists
+if [[ ! -f "$LOG_FILE" ]]; then
+    echo "Log file does not exist."
     exit 1
 fi
 
-# Process the log file, group by IP and HTTP status code, and sort by occurrences
-awk '{print $1, $9}' apache-access.log | sort | uniq -c | sort -nr | awk '{print $1, $2, $3}'
+# Check if the log file is empty
+if [[ ! -s "$LOG_FILE" ]]; then
+    echo "Log file is empty."
+    exit 1
+fi
+
+# Process the log file
+awk '
+{
+    # Ensure the line has at least 9 fields
+    if (NF >= 9) {
+        # Extract IP address and HTTP status code
+        ip = $1
+        code = $9
+        # Ensure the HTTP status code is numeric
+        if (code ~ /^[0-9]+$/) {
+            count[ip, code]++
+        }
+    }
+}
+END {
+    # Output the counts in the required format
+    for (entry in count) {
+        split(entry, keys, SUBSEP)
+        ip = keys[1]
+        code = keys[2]
+        print count[entry], ip, code
+    }
+}' "$LOG_FILE" | sort -nr
