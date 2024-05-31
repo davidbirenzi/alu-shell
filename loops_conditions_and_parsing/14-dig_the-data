@@ -5,9 +5,5 @@ if [[ ! -s apache-access.log ]]; then
     exit 1
 fi
 
-# Use awk to process the log file, grouping by IP and HTTP status code, then count occurrences
-awk '{
-    if (NF >= 9) { 
-        print $1, $9
-    }
-}' apache-access.log | sort | uniq -c | sort -nr | awk '{print $1, $2, $3}'
+# Process the log file, group by IP and HTTP status code, and sort by occurrences
+awk '{print $1, $9}' apache-access.log | sort | uniq -c | sort -nr | awk '{print $1, $2, $3}'
