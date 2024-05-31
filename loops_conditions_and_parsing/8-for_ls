@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#content
+for file in *; do
+  if [[ -f "$file" && "$file" != .* ]]; then
+    # Use parameter expansion to remove everything before and including the first dash
+    formatted_name="${file#*-}"
+    echo "$formatted_name"
+  fi
+done
