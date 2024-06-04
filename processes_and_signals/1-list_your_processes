@@ -1,3 +1,10 @@
 #!/usr/bin/env bash
 #list your processes
-ps -eo user,pid,pcpu,pmem,vsz,rss,tty,stat,start,time,cmd --sort=start_time --forest
+ps -eo user,start,cmd --sort=start_time --forest | awk '
+BEGIN {
+    printf "%-8s %-10s %s\n", "USER", "STARTED", "CMD"
+}
+NR > 1 {
+    printf "%-8s %-10s %s\n", $1, $2, $3
+}
+'
