@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 #process and pid
-
 function love() {
     rm /var/run/myscript.pid
     exit
