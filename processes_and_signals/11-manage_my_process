@@ -15,7 +15,7 @@ case "$1" in
     stop)
         if [ -f $PID_FILE ]; then
             PID=$(cat $PID_FILE)
-            kill "$PID"
+            kill $PID
             rm $PID_FILE
             echo "$PROCESS_NAME stopped"
         else
@@ -25,14 +25,14 @@ case "$1" in
     restart)
         if [ -f $PID_FILE ]; then
             PID=$(cat $PID_FILE)
-            kill "$PID"
+            kill $PID
             rm $PID_FILE
         fi
         nohup $SCRIPT_PATH & echo $! > $PID_FILE
         echo "$PROCESS_NAME restarted"
         ;;
     *)
-        echo "Usage: $0 {start|stop|restart}"
+        echo "Usage: manage_my_process {start|stop|restart}"
         exit 1
         ;;
 esac
